@@ -1,0 +1,1291 @@
+
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[conference]{IEEEtran}
+%\documentclass[10pt, conference, compsocconf]{IEEEtran}
+% Add the compsocconf option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+\usepackage{lineno}
+\usepackage[figurename=Fig.]{caption}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{epstopdf}
+\usepackage{graphics}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{multirow}
+%\usepackage{siunitx}
+\usepackage{color}
+\usepackage{amssymb}
+%\usepackage{esvect}
+\usepackage{balance}
+%\modulolinenumbers[1]
+
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{dblfloatfix}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at: 
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later 
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+%\bibliographystyle{unsrt}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Design of Practical Parity Generator and Parity Checker Circuits in QCA}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+%\author{\IEEEauthorblockN{Authors Name/s per 1st Affiliation (Author)}
+%\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
+%line 2: name of organization, acronyms acceptable\\
+%line 3: City, Country\\
+%line 4: Email: name@xyz.com}
+%\and
+%\IEEEauthorblockN{Authors Name/s per 2nd Affiliation (Author)}
+%\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
+%line 2: name of organization, acronyms acceptable\\
+%line 3: City, Country\\
+%line 4: Email: name@xyz.com}
+%}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+Quantum-dot Cellular Automata (QCA) has emerged as a possible alternative to CMOS in recent era of nanotechnology.
+Some attractive features of QCA include extremely low power consumption and dissipation, high device packing density, high speed (in order of THz).
+QCA based design of common digital modules have been studied extensively in recent past. 
+Parity generator and parity checker circuits play important role in error detection and hence, act as essential components in communication circuits.
+However, very few efforts have been made for efficient design of QCA based parity generator and checker circuits so far.
+Moreover, these existing designs lack in practical realizability as they compromise a lot with commonly accepted design metrics such as area, delay, complexity, and cost of fabrication.
+This paper presents new designs of parity generator and parity checker circuits in QCA which outperform all the existing designs in terms of above mentioned metrics.
+The proposed designs can also be easily extended to handle large number of inputs with a linear increase in area and latency. 
+\end{abstract}
+
+\begin{IEEEkeywords}
+Quantum-dot Cellular Automata; Parity generator; Parity checker; Exclusive-OR (XOR) gate.
+%\MSC[2010] 00-01\sep  99-00
+%\end{keyword}
+
+%\begin{IEEEkeywords}
+%component; formatting; style; styling;
+
+\end{IEEEkeywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+%\section{Introduction}
+%% no \IEEEPARstart
+%This demo file is intended to serve as a ``starter file''
+%for IEEE conference papers produced under \LaTeX\ using
+%IEEEtran.cls version 1.7 and later.
+%
+%All manuscripts must be in English. These guidelines include complete descriptions of the fonts, spacing, and related information for producing your proceedings manuscripts. Please follow them and if you have any questions, direct them to the production editor in charge of your proceedings at Conference Publishing Services (CPS): Phone +1 (714) 821-8380 or Fax +1 (714) 761-1784.
+%% You must have at least 2 lines in the paragraph with the drop letter
+%% (should never be an issue)
+%
+%\subsection{Subsection Heading Here}
+%Subsection text here.
+%
+%
+%\subsubsection{Subsubsection Heading Here}
+%Subsubsection text here.
+
+\section{Introduction}
+\label{sec:intro}
+Last six decades have seen tremendous growth in CMOS based integrated circuits.
+However, threatened by many physical constraints, further down-scaling of chip size seems to be reaching its limit.
+Consequently, the signs of deviation of chip production from the predicted course of Moore's Law have started to show \cite{end_of_MooresLaw}.
+Hence, the focus is shifting towards new emerging nanotechnologies which can make further down-scaling of integrated circuits possible.
+Quantum-dot cellular automata (QCA) is one of the promising nanotechnologies which has the potential to replace CMOS in upcoming nano-technology era \cite{lent_tnano1993}.
+%The advantage of using QCA is lesser power dissipation \cite{timler_jap2002}, inherent pipelining, fast clocking speed \cite{lent_jap1994}, high density and good scaling capability.
+One of the most interesting feature of QCA is extremely low power dissipation and consumption. This is achieved by the fact that information flows in QCA devices without any flow of current \cite{lent_tnano1993}.
+Low power consumption and dissipation, high device packing density, high speed (in order of THz) enable realization of more dense circuits with fast switching speed, achieving room temperature operations \cite{Isakcs_2003,burn_sc2000,wang_ieee2004} using QCA.
+
+Design and simulation of common computing modules like adders, multipliers, multiplexers \cite{lent_jap1994,cho_tc2009,Mardiris_IJCTA_2010} have been studied enormously.
+However, lesser effort has been observed in the direction of designing communication circuits.
+Parity based method is one of the most widely used error detection techniques for the data transmission \cite{Mano_DigitalBook}.
+In digital systems, binary data being transmitted and processed, may be subjected to noise that may alter data bits from 0s to 1s and vice versa.
+A parity bit, that indicates whether the number of 1s present in the data word is even or odd, is added to the original data word during transmission from the transmitter.
+At the receiving end, parity bit of the received word is counted by counting the number of 1s in it and is compared with the transmitted one to detect the presence of an error in the data.
+A parity generator is a combinational logic circuit that generates the parity bit in the transmitter \cite{Mano_DigitalBook}.
+On the other hand, a circuit that checks the parity in the receiver is called parity checker \cite{Mano_DigitalBook}.
+A combined circuit or device consisting of parity generator and parity checker is commonly used in digital systems to detect the single bit errors in the transmitted data word.
+
+A parity generator accepts an $(n-1)$-bit stream data and generates the additional parity bit that is to be transmitted with the bit stream.
+In even parity bit scheme, the parity bit is 0 (1) if there are even (odd) number of 1s in the data stream.
+In odd parity bit scheme, the parity bit is 1 (0) if there are even (odd) number of 1s in the data stream.
+A parity checker accepts an $n$-bit stream including $(n-1)$-bit data and the parity bit transmitted along with it and generates the parity bit for the data thus received.
+Parity checker at the receiver can be even or odd depending on the type of parity generator used at the transmitter end.
+For an even parity checker, an error is indicated by the output 1 (i.e., the number of 1s in its input is found to be odd instead of even).
+Similarly, for an odd parity checker, an error is indicated by the output 1 (i.e., the number of 1s in its input is found to be even instead of odd). 
+
+A few designs of parity generator and parity checker circuits in QCA have been presented in the literature \cite{Das_FITEE_2016,firdous_2015,firdous_bhat2014,teja_nems2008,S_utpal2014,beigh_ijpap2013}. 
+However, existing designs lack in practical realizability as they compromise a lot with commonly accepted design metrics such as area, delay, complexity, and cost of fabrication.
+It may be noted that the basic principle involved in the implementation of parity circuits is that sum of odd number of 1s is always 1 and sum of even number of 1s is always zero.
+Hence, XOR function, that produces 0 (1) output when there are even (odd) number of 1s in the inputs, plays a pivotal role in implementing such circuits.
+For example, an $(n-1)$-bit parity generator can be realized by implementing an $(n-1)$-bit XOR function.
+Similarly, an $n$-bit parity checker, for checking the parity thus generated, can be realized by implementing an $n$-bit XOR function.
+Accordingly, overall efficiency of such circuits depends a lot on the implementation of XOR functions.  
+A careful scrutiny of the existing designs of parity generator and checker circuits reveal that all these designs use cascaded 2-input XOR gates (without putting much effort in optimizing the individual XOR gates) for implementing the desired XOR function.
+In this paper, we have used a combination of 2-input and 3-input XOR gates to implement the desired XOR function for realizing parity generator and checker circuits in QCA.
+We have effectively utilized the fact that implementation of an $n$-bit XOR function in QCA can be optimized by using a combination of 2-input and 3-input XOR gates using ESOP based transformations \cite{Feinstein_RMW2007} rather than using 2-input XOR gates only.
+It also helps in realizing larger parity generator and checker circuits using the smaller versions in a systematic manner. 
+Simulation experiments performed to compare the proposed designs of QCA parity generator and checker circuits with the existing ones also demonstrate the expected benefit.
+The proposed ones are found to outperform all the existing designs in terms of commonly accepted design metrics.  
+
+The rest of the paper is organized as follows: 
+Section \ref{sec:basicsQCA} introduces the fundamentals of QCA technology.
+Section \ref{sec:Prior Work} reviews the related prior work.
+The proposed designs are presented in Section \ref{sec:Proposed Work}.
+Summary of comparative study between the proposed design with the existing ones is illustrated in Section \ref{sec:comparison}.
+Finally, Section \ref{sec:Conclusion} draws the conclusion of this work. 
+
+\section{Basics of QCA}
+\label{sec:basicsQCA}
+The concept of QCA was first demonstrated by Metal-Island implementation \cite{Swartzlander_BookChap2014}.
+Other possible implementation mechanism include semiconductor, molecular and magnetic \cite{Swartzlander_BookChap2014}.
+In this work, we have considered semiconductor implementation of QCA.  
+Basic operation of such QCA devices is based on the quantum mechanical effects and quantization of Coulombic charge \cite{lent_tnano1993}.
+The fundamental element, often referred to as QCA cell, is a square-shaped container-like structure to hold the charge. Each QCA cell has four potential wells (dots), one at each corner of the cell and two free electrons which are capable of tunnelling quantum mechanically, from one quantum dot to another. At equilibrium, the two electrons inside a cell always occupy the antipodal sites due to Coulombic repulsion. This gives way to two energetically equivalent arrangements. These two arrangements, as shown in the Fig. \ref{fig:Polarity}, are denoted as two different polarizations p = +1 and p = -1 which represent logic 1 and logic 0, respectively. 
+\begin{figure}[ht!]
+\centering
+\includegraphics[height=0.1\textwidth]{Figures/cellb+1.eps}
+\hspace{1 cm} 
+\includegraphics[height=0.1\textwidth]{Figures/cellb-1.eps}
+\caption{\small Binary representation of QCA cells}
+\label{fig:Polarity}
+\end{figure}
+Information flow in QCA is achieved by Coulombic interactions between electrons present in neighboring cells without flow of electrons which leads to extremely low power dissipation.
+In a series of QCA cell, every cell just rearranges their polarized state according to the adjacent cell to make the flow of information possible.
+ 
+Majority gate or majority voter (M) and inverter gate (I)\cite{lent_jap1994} are the two basic building blocks of any QCA circuits. Fig. \ref{fig:Gates} shows their design layout in QCA.
+Universal nature of the combination of these two gates facilitates implementation of any logic circuit using them.
+\begin{figure}[ht]
+\center
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Figures/newinv1.eps}
+\centerline{(a)}
+\end{minipage}
+\hspace{0.8cm}
+\begin{minipage}[b]{0.21\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Figures/newmaj.eps}
+\centerline{(b)}
+\end{minipage}
+\caption{\small Fundamental building blocks of QCA design layout (a) Inverter  (b) Majority voter}
+\label{fig:Gates}
+\end{figure}
+
+QCA allows two wires to cross each other in the same layer without interfering each other.
+As shown in Fig. \ref{fig:Multilayer crossing}(a), such coplanar crossover\cite{lent_jap1994} is realized using two different types of wires: a binary wire (consisting of a series of normal QCA cells) and an inverted chain (consisting of cells rotated $45^\circ$ from their normal orientation).
+Wire crossings implemented using multiple layers (similar to metal wire crossovers in CMOS) are also possible in QCA (Fig. \ref{fig:Multilayer crossing}(b)). 
+\begin{figure}[ht]
+\center
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Figures/coplanar_crossing1.eps}
+\centerline{(a)}
+\end{minipage}
+\hspace{0.8cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\includegraphics[width=\textwidth]{Figures/multilayer.eps}
+\centerline{(b)}
+\end{minipage}
+\caption{\small (a) Coplanar and (b) Multilayer crossover in QCA}
+\label{fig:Multilayer crossing}
+\end{figure}
+A quasi-adiabatic clocking mechanism is also used in QCA for synchronization of information and to meet the  power requirement of the QCA device.
+A four-phase clock zone system, introduced by Lent et al.\cite{lent_tnano1993}, with a $90^\circ$ phase shift from one clock zone to the next is commonly used (Fig. \ref{fig:QCA_Clocking}). 
+The four phases (zones) are named as switch, hold, release and relax, respectively.
+The orientations or state of electrons in a QCA cell is changed during switch or release phase only.
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\linewidth]{Figures/clocking.eps}
+\caption{QCA clocking}
+\label{fig:QCA_Clocking}
+\end{figure}
+
+\section{Related prior work}
+\label{sec:Prior Work}
+A significant part of the research on QCA so far has focused on the design and simulation of basic logic gates \cite{lent_jap1994} and various digital modules including adders \cite{zhang_ISCAS2005,DM_d2016}, multipliers \cite{cho_tc2009}, multiplexers \cite{Mardiris_IJCTA_2010}.
+However, as mentioned in Section \ref{sec:intro}, very few such efforts can be found in the literature in designing communication circuits and their components such as parity generators and checkers.
+%A few QCA implementations of parity generators and parity checkers\cite{teja_nems2008,Das_FITEE_2016 ,beigh_ijpap2013,firdous_2015,firdous_bhat2014} have also been presented for error-detection with an intention of further improving the design metrics used. In all the articles, the common design metrics used by circuit designers are number of cells, area, latency (number of clock-zones) and type of crossovers used in the layout. \\
+A 4-bit even parity checker consisting of three 2-input XOR gates with both coplanar and multilayer crossovers was first proposed by Teja {\it et al.} \cite{teja_nems2008}.
+Overall, the design consumes a large number of QCA cells (299 QCA cells) and incurs high latency (8 clock zones).
+With an intention of improving the design in terms of area, Mustafa and Beigh \cite{beigh_ijpap2013} proposed a 4-bit odd parity checker that consumes 145 QCA cells.
+However, this design is found to incur prohibitively large latency (12 clock zones).
+In \cite{beigh_ijpap2013}, Mustafa and Beigh also presented a 3-bit even parity generator that consumes 99 QCA cells and incurs a latency of 8 clock zones.  
+Later, Ahmad {\it et al.} \cite{firdous_2015} proposed designs of 4-input even and odd parity checkers both of which consume 94 QCA cells and incur a latency of 7 clock zones.
+Ahmad {\it et al.} \cite{firdous_2015} also proposed a 3-bit even parity generator and a 3-bit odd parity generator which consume 64 and 66 QCA cells, respectively, and incur a latency of 11 and 7 clock zones, respectively.
+An area efficient even parity generator and checker circuit was later proposed by Santra \cite{S_utpal2014} where the 3-bit even parity generator consumes only 60 QCA cells and 4-bit even parity checker consumes 117 QCA cells. However, the latency incurred by them is 8 clock zones and 9 clock zones, respectively.
+%The latency incurred by their parity generator is 8 clock zones and the parity checker has a latency of 9 clock zones.
+A 3-bit odd parity generator and a 4-bit odd parity checker were proposed by Das and De in \cite{Das_FITEE_2016}, using reversible logic for nano-communication. The design of parity generator consumes 72 QCA cells and incurs a latency of 7 clock zones whereas the design of the parity checker (that uses a $2 \times 2$ Feynman gate structure \cite{Feynman_ON1985}) consumes 126 QCA cells and latency of 8 clock zones.
+It is apparent that all of these existing designs compromise a lot with one or more commonly accepted design metrics such as area, delay, complexity, and cost of fabrication.
+Moreover, most of these designs present smaller sized parity generators and checkers (3-bit/4-bit) and hardly provides any clue so that they can be extended to realize such circuits of bigger size (15-bit/16-bit or even bigger).
+The above mentioned drawbacks act as significant barrier against the practical realizability of these designs.
+Accordingly, efficient and practically realizable designs of parity generators and parity checkers have become very much essential. 
+ 
+\section{Proposed QCA Parity Generator and Parity Checker Circuits}
+\label{sec:Proposed Work}
+As mentioned in Section \ref{sec:intro}, XOR function, that produces 0 (1) output when there are even (odd) number of 1s in the inputs, plays a pivotal role in implementing parity generator and checker circuits.
+An $n$-input XOR function is usually implemented by combining several $2$-input XOR gates.
+Moreover, use of existing designs of QCA $2$-input XOR gates \cite{beigh_2013,shah_IOSR-JCE2014,beigh_ijpap2013}, which use a large number of majority gates, lead to significant compromise with the area as well as latency.
+For instance, implementation of a $4$-bit XOR function using three $2$-input XOR gates \cite{beigh_ijpap2013} takes at least 9 majority gates.
+However, we have observed that more efficient implementation of $n$-input XOR function is possible by using combinations of $2$-input and $3$-input XOR gates following ESOP based transformation \cite{Feinstein_RMW2007}.
+Accordingly, we have used combination of $2$-input and $3$-input XOR gates to implement $n$-bit XOR function instead of relying solely on $2$-input XOR gates which was the case in existing implementations.   
+We have also used majority logic reduction \cite{zhang_tnano2004,Hanan_2011, kun_2010} to further optimize the designs of individual XOR gates (both $2$-input and $3$-input).
+
+ 
+The logical expression ($A\overline{B}$+$\overline{A}B$), representing $2$-input XOR function can be re-written equivalently as $M[M(A, B, 1), \overline{M(A, B, 0)}, 0]$ using majority logic reduction, where $M(X,Y,Z)$ represents a $3$-input majority gate \cite{lent_jap1994} with inputs X, Y, and Z.
+The above Boolean expression can be implemented using three $3$-input majority gates and one inverter as shown in Fig. \ref{fig:XORs}(a).
+Similarly, the logical expression ($\bar{A}\bar{B}C+\bar{A}B\bar{C}+A\bar{B}\bar{C}+ABC$), representing a $3$-input XOR function can be re-written as $M[{M(\bar{A},\bar{B},\bar{C})}, C, M(A, B,\bar{C})]$ using majority logic reduction, where $M(X,Y,Z)$ represents a $3$-input majority gate with inputs X, Y, and Z.
+Fig. \ref{fig:XORs}(b) shows the schematic diagram of the gate level implementation of the above expression.
+\begin{figure}[ht!]
+\center
+\includegraphics[height=0.2\textwidth]{Figures/xor2_dia.eps}
+\vspace{1 cm}
+\centerline{(a)}
+\includegraphics[height=0.2\textwidth]{Figures/xor3_dia.eps}
+\centerline{(b)}
+\caption{\small Gate level implementation of (a) 2-input XOR and (b) 3-input XOR}
+\label{fig:XORs}
+\end{figure}
+The logical expression for the output of $3$-bit even parity generator is $A \oplus B\oplus C$ and hence, it can be implemented simply by using the $3$-input XOR gate of Fig. \ref{fig:XORs}(b).
+\begin{figure}[ht]
+%\center
+\hspace{-0.8cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\vspace{-1cm}
+\includegraphics[width=2\textwidth]{Figures/3pepg.eps}
+\vspace{-3cm}
+%\centerline{(a)}
+%\vspace{-3cm}
+\end{minipage}
+%\hspace{0.5cm}
+\begin{minipage}[b]{0.45\linewidth}
+\centering
+\vspace{-1cm}
+\includegraphics[width=2\textwidth]{Figures/3popg.eps}
+\vspace{-3cm}
+%\centerline{(b)}
+%\vspace{-3cm}
+\end{minipage}
+\vspace{-1cm}
+\caption{\small Layout of the proposed $3$-bit (a) even (b) odd parity generator}
+\label{fig:EvenOddPG}
+\end{figure}
+\begin{figure}[ht]
+%\center
+\hspace{-0.8cm}
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+\vspace{-1cm}
+\includegraphics[width=2.5\textwidth]{Figures/4pepc.eps}
+\vspace{-1cm}
+%\centerline{(a)}
+\end{minipage}
+\hspace{0.7cm}
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+\vspace{-1cm}
+\includegraphics[width=2.5\textwidth]{Figures/4popc.eps}
+\vspace{-1cm}
+%\centerline{(b)}
+\end{minipage}
+\vspace{-1cm}
+\caption{\small Layout of the proposed $4$-bit (a) even (b) odd parity checker}
+\label{fig:EvenOddPC}
+\end{figure}
+\begin{figure*}[htb]
+\vspace{-1.0 cm}
+%\hspace{-1.3 cm}
+\includegraphics[width=.9\linewidth]{Figures/lfnpg.eps}
+%\includegraphics[width=1.05\linewidth]{Figures/lnpg.eps}
+\vspace{-2.1 cm}
+\caption{\small Layout of the proposed 15-bit even parity generator}
+\label{fig:ExEvenPG}
+\end{figure*}
+The logical expression for the output of $3$-bit odd parity generator (which is $A\oplus B\ominus C$)  can be re-written as ($\bar{A}\bar{B}\bar{C}+\bar{A}BC+A\bar{B}C+AB\bar{C}$) i.e., $  M[{M({A},{B},{C})},\bar{C}, M(\bar{A},\bar{B},{C})]$ using majority logic reduction.
+The above expression indicates that $3$-bit odd parity generator can also be implemented by using three majority gates.
+Fig. \ref{fig:EvenOddPG}(a) and  Fig. \ref{fig:EvenOddPG}(b) show the layouts of the proposed $3$-bit even and odd parity generators, respectively.
+As apparent from the figures, both the designs consist of 49 QCA cells without any crossover and incur 3 clock zones (0.75 clock cycle) latency.
+Assuming QCA cell size of $18nm \times 18nm$ with a gap of $2nm$ between two consecutive cells, each of the layouts consumes an area of $0.04\mu m^2$.
+
+The logical expression for the output of $4$-bit even parity checker (which is $A\oplus B\oplus C\oplus D $, where `D' represents the transmitted parity bit) is same as that of a $4$-bit XOR gate and hence, it can be implemented by combining a $3$-input XOR gate and a $2$-input XOR gate.
+Similarly, the logical expression for the output of $4$-bit odd parity checker is $A\ominus B\ominus C\ominus D$ which can also be realized using a $3$-input XOR gate and a $2$-input XOR gate.
+Fig. \ref{fig:EvenOddPC}(a) and  Fig. \ref{fig:EvenOddPC}(b) show the layouts of the proposed $4$-bit even and odd parity checkers, respectively.
+As apparent from the figures, the proposed designs consist of 84 QCA cells and 88 cells, respectively.
+However, both of them consume same area ($0.08\mu m^2$) assuming QCA cell size of $18nm \times 18nm$ with a gap of $2nm$ between two consecutive cells.
+Moreover, both the designs incur latency of 5 clock zones (1.25 clock cycles) and have no crossover.
+
+In order to verify the functional behavior of the proposed parity generator and checker circuits, we carried out simulations using the bistable simulation engine of QCADesigner \cite{Walus_QCADesigner} (version 2.0.3) with the following parameters:  (i) QCA cell dimension: $18nm \times 18nm$ with a gap of $2nm$ between two consecutive cells (ii) Radius of effect: $65nm$, (iii) Relative permittivity: 12.9, (iv) Convergence tolerance: 0.001000.
+It may be noted that the bistable simulation engine of QCADesigner uses intercellular Hartree approximation (ICHA) assuming a simple two-state system to represent each QCA cell. A little compromise in accuracy as compared to full-basis computation is often compensated by the significantly better scalability \cite{LaRue_TNANO2013}.
+Simulation results are found to show significantly strong polarization (more than 0.954) at the output of all the circuits. 
+
+
+
+
+It may also be noted that the proposed designs can be systematically extended to handle any number of inputs ($n$).
+For example, Fig. \ref{fig:ExEvenPG} and Fig. \ref{fig:ExEvenPC} show the layouts of a $15$-bit parity generator and a $16$-bit parity checker circuit, respectively.
+\begin{figure*}[ht!]
+%\vspace{-0.3 cm}
+%\hspace{-1.5 cm}
+%\includegraphics[width=1\linewidth]{Figures/lnpc.eps}
+\includegraphics[width=1\linewidth]{Figures/lfnpc.eps}
+\vspace{-3.6cm}
+\caption{\small Layout of the proposed 16-bit even parity checker}
+\label{fig:ExEvenPC}
+\end{figure*}
+\begin{table}[h!]
+ \begin{center}
+ \scriptsize
+ \caption{\small Generalized expressions for various design metrics of proposed $n$-bit parity generator and parity checker}
+  \label{tab:propcomp}
+
+\begin{tabular}{|l|l|l|l|} \hline
+
+
+     
+      Circuits&\multicolumn{3}{c|}{Generalized expressions for}\\\cline{2-4}& Area  & Latency  & No. of \\
+     & ($\mu m^2$) & (clock cycles) &Crossover\\ 
+  \hline
+          
+     Parity Generator & $0.02(7n-11) \times $ & $n/4$ & 1.5($n$-3)\\
+                      & $0.02(1.5n+11.5)$; $n\geq5$ &       &  \\
+     \hline 
+     Parity Checker & $0.02(7n-9) \times $ & $(n+1)/4$ & 1.5($n$-4)\\ 
+                     & $0.02(1.5n+10)$; $n\geq5$ &  & \\
+    \hline
+\end{tabular}
+\end{center}
+\end{table}
+In order to estimate the growth of various design metrics as a function of the number of inputs ($n$), we have computed the general expressions for area, latency, and number of crossovers.
+Table \ref{tab:propcomp} shows the expressions for $n$-bit parity generator and checker.
+Figs. \ref{fig:growthArea}-\ref{fig:growthLatency} may be referred for the graphical representations of the growth in area and latency, respectively.
+It is apparent that both the parameters grow somewhat linearly with the increase in the value of $n$.
+
+\section{comparative Study}
+\label{sec:comparison}
+
+\begin{figure}[ht!]
+%\vspace{-1 cm}
+%\hspace{-1 cm}
+\includegraphics[width=\linewidth]{Figures/a.eps}
+%\vspace{-3 cm}
+\caption{\small Growth in area of the proposed $n$-bit parity generator with respect to increasing value of $n$}
+\label{fig:growthArea}
+\end{figure}
+
+\begin{figure}[ht!]
+%\vspace{-1 cm}
+%\hspace{-1 cm}
+\includegraphics[width=\linewidth]{Figures/l.eps}
+%\vspace{-3 cm}
+\caption{\small Growth in latency of the proposed $n$-bit parity generator with respect to increasing value of $n$}
+\label{fig:growthLatency}
+\end{figure}
+In order to evaluate the effectiveness of the proposed designs of parity generators and checkers, we have compared each of them with existing ones in terms of commonly accepted design metrics such as area, latency, complexity, and the type and number of crossovers used.
+Note that the complexity of a QCA circuit can be expressed as $M + I + C$ \cite{Liu_tnano2014}, where $M$, $I$, and $C$ refer to the number of majority gates, the number of inverters and the cost of crossovers used in the circuit, respectively.
+Table \ref{tab:existingXOR3comp} and Table \ref{tab:4bitepc} show the summary of the comparative study made on $3$-input parity generators and $4$-input parity checkers, respectively.
+It is apparent from the tables that the proposed designs outperform all the existing designs in terms of all the design metrics. 
+\begin{table}[!htb]
+\begin{center}
+\scriptsize
+\caption{\small Comparisons of various $3$-bit parity generators in terms of common design metrics}
+\label{tab:existingXOR3comp}
+\vspace{0.3cm}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+%\begin{center}
+Parity & Area & Latency & Type & Number  & Comp-  \\
+Generator & ($\mu m^2$) & (clock  & of & of & lexity\\
+& & zones) & crossover & crossover & \\
+\hline       
+~\cite{S_utpal2014}, Even & 0.06 & 8 & None & -- & 8 \\ 
+\hline
+~\cite{beigh_ijpap2013}, Even & 0.17 & 8 & None & -- & 8 \\
+\hline
+~\cite{firdous_2015}, Even  & 0.09  & 11 & Multilayer & 2 & 14 \\
+\hline
+~\cite{firdous_bhat2014}, Even & 0.09 & 12 & Multilayer & 2 & 14 \\
+\hline
+{\bf Proposed (Even)} & {\bf 0.04} & {\bf 3} & {\bf None} & {\bf --} & {\bf 5} \\
+\hline
+~\cite{Das_FITEE_2016}, Odd & 0.08 & 7 & None & -- & 11 \\
+\hline
+~\cite{firdous_2015}, Odd  & 0.09 & 7 & Multilayer & 2 & 15 \\
+\hline
+{\bf Proposed (Odd)} & {\bf 0.04} & {\bf 3} & {\bf None} & {\bf --} & {\bf 6} \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[!htb]
+\begin{center}
+\scriptsize
+\caption{\small Comparisons of various $4$-bit parity checkers in terms of common design metrics}
+\label{tab:4bitepc}
+\vspace{0.3cm}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+%\begin{center}
+Parity & Area & Latency & Type & Number  & Comp-  \\
+Checker & ($\mu m^2$) & (clock  & of & of & lexity\\
+& & zones) & crossover & crossover & \\
+\hline       
+~\cite{S_utpal2014}, Even & 0.13 & 9 & Coplanar & 1 & 15 \\ 
+\hline
+~\cite{beigh_ijpap2013}, Even & 0.28 & 12 & None & -- & 15 \\
+\hline
+~\cite{firdous_2015}, Even & 0.11 & 7 & Multilayer & 3 & 21 \\
+\hline
+~\cite{firdous_bhat2014},Even & 0.12 & 7 & Multilayer & 3 & 21 \\
+\hline
+\cite{teja_nems2008}, Even  &  0.53 & 8  & Coplanar \& & 4  & \\&&&Multilayer&1&30\\
+\hline
+{\bf Proposed (Even)} & {\bf 0.08} & {\bf 5} & {\bf None} & {\bf --} & {\bf 9} \\
+\hline
+~\cite{Das_FITEE_2016}, Odd & 0.15 & 8 & None & -- & 18 \\
+\hline
+~\cite{firdous_2015}, Odd & 0.13 & 7 & Multilayer & 3 & 22 \\
+\hline
+ 
+{\bf Proposed (Odd)} & {\bf 0.08} & {\bf 5} & {\bf None} & {\bf --} & {\bf 10} \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+As suggested by Liu {\it et al.} \cite{Liu_tnano2014}, instead of considering the individual metrics for comparison, cost functions combining multiple metrics may be more effective.
+For the sake of completeness, we have also included a case of comparison based on a cost function ($Cost = (M^2 + I + C^2) \times T$) specifically designed for QCA circuits \cite{Liu_tnano2014}.
+Figs. \ref{fig:costppg}-\ref{fig:costppc} illustrate the comparison for $3$-bit parity generators and $4$-bit parity checkers, respectively.
+\begin{figure}[ht!]
+\includegraphics[width=\linewidth]{Figures/pgcost.eps}
+\caption{\small Comparison of proposed $3$-bit parity generator with the existing ones in terms of $Cost=(M^2+I+C^2) \times T$}
+\label{fig:costppg}
+\vspace{0.3cm}
+\end{figure}
+\begin{figure}[ht!]
+\includegraphics[width=\linewidth]{Figures/pccost.eps}
+\caption{\small Comparison of proposed $4$-bit parity checker with the existing ones in terms of $Cost=(M^2+I+C^2) \times T$}
+\label{fig:costppc}
+\vspace{0.3cm}
+\end{figure}
+The proposed designs are found to be superior with respect to this cost function too.
+%\vspace{-0.5cm}
+\section{Conclusion}
+\label{sec:Conclusion}
+%\vspace{-.2 cm}
+Efficient designs of $3$-bit parity generator and $4$-bit parity checker circuits in QCA have been presented. Both the designs are found to outperform all the existing designs in terms of common design metrics such as area, latency, and more importantly in-terms of cost function specially designed for QCA circuits. Moreover, both the designs can be extended easily for large number of inputs with linear increase in area and latency, thereby, making them suitable for practical realization.
+
+%\section{Conclusion}
+%The conclusion goes here. this is more of the conclusion
+%
+%% conference papers do not normally have an appendix
+%
+%
+%% use section* for acknowledgement
+%\section*{Acknowledgment}
+%
+%
+%The authors would like to thank...
+%more thanks here
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+%\begin{thebibliography}{1}
+%
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+%
+%\end{thebibliography}
+
+
+
+%\section*{References}
+%\vspace{-0.12in}
+%\scriptsize
+%\balance
+
+\bibliographystyle{IEEEtran}
+\vspace{-1 cm}
+\bibliography{IEEEabrv,thesis}
+\end{document}
+
+As we know, one of the easiest way of detecting an error while transferring binary information is by using parity bit. A parity bit is an extra bit included with a binary message to make the total number of 1's either even or odd in the message. The circuit generating the parity bit at the transmitters end is called the parity bit generator and the circuit checking the parity bit at the receivers end is called the parity bit checker. An even parity bit generator generates the parity bit 1, if there are odd number of 1's in the message, otherwise 0, in order to make the total number of 1's, even. Whereas, an odd parity bit generator generates the parity bit 1, if there are even number of 1's in the message, so as to make the count of 1's, odd. This scheme uses only a single bit and it requires only a number of XOR gates to generate the parity bit. In the same way, at the receiver's end, when an even parity checker is used, the number of 1's in the message, along with the parity bit, should be even. If the number of 1's is odd, the parity checker produces the output '1', indicating the error. Similarly, in case of odd parity checker, the number of 1's should be odd. It can be implemented with XOR gates too, with the last gate producing the output, being an XNOR.
+So far, many combinational and sequential circuits have been designed in QCA.
+
+
+Firstly, M. Mustafa and Beigh \cite{beigh_ijpap2013} introduced 3-bit even parity generator by using QCA design layout while  introduced, first parity checker in QCA technology. Teja et al. proposed a  with  It . The even parity generator designed by Beigh and Mustafa \cite{beigh_ijpap2013} uses 99 QCA cells with an area of 0.14$\mu m^2$. It has a latency of 8 clock cycles. While the parity checker \cite{beigh_ijpap2013} proposed by them uses three 2-input XOR gates with 145 QCA cells and 12 clock delays. In \cite{firdous_2015}, F. Ahmad et al. designed an odd parity checker which has 106 QCA cells and an area of 0.13$\mu m^2$ with a latency of 7 clock zones. Another design of odd parity checker using XNOR gate contains circuit complexity of 106 QCA cells, an area of 0.13$\mu m^2$ and latency of 1.75 clock delays. The proposed even parity generator by Firdous Ahmad\cite{firdous_2015} uses 72 QCA cells and has an area of 0.09$\mu m^2$ and a latency of 11 clock zones. While proposed even parity checker\cite{firdous_2015} has total number of 106 QCA cells, an area of 0.11$\mu m^2$ and latency of 7 clock cycles. In \cite{S_utpal2014}, S. Santra  designed an even parity generator by using two 2-input XOR gates which consists of only 60 number of QCA cells and the circuit area of 0.0648$\mu m^2$. They have also proposed a 4-bit parity checker which has 117 cells and an area of 0.1672$\mu m^2$. A 3-bit odd parity generator and a 4-bit parity checker were proposed by Das and De in \cite{Das_FITEE_2016}, using reversible logic for nano-communication. The design of odd parity generator by Das and De \cite{Das_FITEE_2016} uses 72 number of QCA cells and 7 clock zones with an area of 0.09$\mu m^2$. Whereas the odd parity checker proposed by them \cite{Das_FITEE_2016} uses Feynman gate structure having 126 QCA cells and 8 clock zones with an area of 0.18$\mu m^2$.
+
+All of these works, \cite{teja_nems2008,beigh_ijpap2013,firdous_2015}, use only 2-input XOR gates but later we can conclude that these approaches are not so efficient. There is still a scope of improvement here.
+
+
+Exclusive-OR plays a pivotal role in designing parity generator and parity checker. A simple 2-input XOR gate is a digital logic gate that results in a TRUE output (logic 1), if and only if, one of the inputs of the gate is TRUE. In general, an n-bit XOR gate produces the output TRUE, if odd number of inputs are TRUE. An n-bit parity generator can be implemented with an n-bit XOR gate. Similarly, parity checker, for the parity thus generated, can be implemented with an (n+1)-bit XOR gate. Several designs of 2-input QCA XOR gates have been presented in recent past\cite{beigh_2013,shah_IOSR-JCE2014,beigh_ijpap2013}, all of which use a relatively larger area span. For instance, it will take at least 9 majority gates if we use three 2-input XOR gates in a circuit. ESOP based transformation \cite{Feinstein_RMW2007} can be used to optimize the XOR gate structures to use less area which roughly says that a XOR gate structure can be optimized in area by using a combination of 2-input and 3-input XOR gates. But as outlined in Section \ref{sec:Prior Work}, all the existing designs of parity generator and checker have used 2-input XOR gates only. This practice is less efficient in terms of common design metrics: area, cell count, delay, etc. than the one using a combination of 2-input and 3-input XOR gates to design any n-input XOR gate.\\
+In this paper, we have used the combination of 2-input and 3-input XOR gates instead of relying solely on 2-input XOR gates to design our circuit, thus, it is faster and more efficient than the previous ones in terms of common design parameters.
+Also, majority logic reduction and majority logic synthesis \cite{zhang_tnano2004,Hanan_2011, kun_2010} is used so that the logical expression is reduced in terms of majority gates and inverters.
+
+
+A 3-bit parity generator can be implemented either by using two cascaded 2-input XOR gates or by using a single 3-input XOR gate \cite{Feinstein_RMW2007}. But we already know that, according to ESOP based transformation \cite{Feinstein_RMW2007}, a XOR gate implementation using either a combinaton of 2-input and 3-input XOR gates or only 3-input XOR gates is, better than the one using only 2-input XOR gates. Similarly, a 4-bit parity checker can be implemented in two ways: either by using three 2-input XOR gates, or by using one 3-input XOR gate and a 2-input XOR gate in a cascaded manner. \\We have designed a more efficient 3-input XOR gate which we used as a 3-bit even parity generator. We then designed an odd parity generator using the principle that odd parity generator is an even function, a complement of even parity generator which is an odd function. Thus, odd parity generator can be implemented using the fact that the gate associated with the output should be an XNOR gate. We have also proposed a 4-bit even and odd parity checker which checks whether the 3-bit message along with the generated parity bit at the receiver's end is correct or not. Our proposed even parity generator uses 3-input XOR gate. It has 48 QCA cells with a latency of 3 clock zones and an area of 0.04$\mu m^2$. The design has no crossovers. The proposed odd parity generator uses 48 QCA cells with a latency of 3 clock zones. The circuit layout has an area of 0.04$\mu m^2$, without any crossovers. The proposed even parity checker uses a 3-input XOR gate followed by a 2-input XOR gate. The realized design of 4-bit even parity checker has low cell complexity of 82 QCA cells with a latency of 5 clock zones. The area of the circuit layout is 0.07$\mu m^2$ and no crossovers are used. Similarly, the realized design of 4-bit odd parity checker uses the same XOR structure but has 86 QCA cells with a latency of 5 clock zones. It has an area of 0.07$\mu m^2$. The circuit does not have any crossovers. 
+Fig. \ref{fig:EvenPG} and Fig. \ref{fig:EvenPGSim} illustrate 3-bit even parity generator and its simulation result, respectively. Fig. \ref{fig:OddPG} and Fig. \ref{fig:OddPGSim} show 3-bit odd parity generator and its simulation result, respectively. The layout of proposed 4-bit even parity checker, and its simulation result is shown in Fig. \ref{fig:EvenPC} and Fig. \ref{fig:EvenPCSim}, respectively. The proposed 4-bit odd parity checker and its simulation result are shown in Fig. \ref{fig:OddPC} and Fig. \ref{fig:OddPCSim}, respectively. A 3-bit message along with a parity-bit is transmitted to its receiving end, where a parity checker circuit checks for the possible error in transmission. If the message is transmitted with even parity bit, the received 4-bit message should have an even number of 1's. Otherwise, the parity checker circuit detects an error, i.e., generates logic 1 as output. In case of even parity checker, at the receiving end, the parity error check (PEC) gives an ouput of 4-bit XOR gate which is written as $A\oplus B\oplus C\oplus D $  and an output  $A\ominus B\ominus C\ominus D $ in case of odd parity checker, where 'D' is parity bit for error detection. The output of the parity checker will be '0' in case of error free transmission of data stream and '1', if any error occurs.\\
+
+\vspace{1 cm}
+\begin{figure}[ht!] 
+\vspace{-3 cm}
+\includegraphics[height=\linewidth]{Figures/EPG.eps}
+\vspace{-3.5 cm}
+\caption{\small Proposed even parity generator}
+\label{fig:EvenPG}
+\includegraphics[width=\linewidth]{Figures/evenparitygen_sim.eps}
+\vspace{.5 cm}
+\caption{\small Simulation result of proposed even parity generator}
+\label{fig:EvenPGSim}
+\end{figure}
+\begin{figure}
+\vspace{-3 cm}
+\hspace{-1.2 cm}
+\includegraphics[height=\linewidth]{Figures/OG1.eps}
+\vspace{-2 cm}
+\caption{\small Proposed odd parity generator}
+\label{fig:OddPG}
+\vspace{0.6 cm}
+\includegraphics[width=\linewidth]{Figures/oddparitygen_sim.eps}
+\vspace{-.5 cm}
+\caption{\small Simulation result of proposed odd parity generator}
+\label{fig:OddPGSim}
+\vspace{-0.5 cm}
+\end{figure}
+\begin{figure}[ht!]
+\vspace{-1 cm}
+\hspace{-1 cm}
+%\includegraphics[height=.9\linewidth]{Figures/lfnpg.eps}
+\includegraphics[height=.9\linewidth]{Figures/lextnpg.eps}
+\vspace{-3 cm}
+\caption{\small Proposed 15-bit even parity generator}
+\label{fig:ExEvenPG}
+\end{figure}
+
+\begin{figure}[h]
+\vspace{-3 cm}
+\hspace{.5 cm}
+\includegraphics[height=0.5\textwidth]{Figures/epcn82.eps}
+\vspace{-4 cm}
+\caption{\small Proposed even parity checker }
+\label{fig:EvenPC}
+\includegraphics[width=\linewidth]{Figures/evenparitycheck85_sim.eps}
+\caption{\small Simulation result of proposed even parity checker}
+\label{fig:EvenPCSim}
+
+\end{figure}
+
+
+can be given by $0.01[4+[[3n+17]*[n-3]*0.14]]$, and the number of clock cycles will be $(3/8)(n-1)$. 
+Similarly, n-bit parity checker has an area $0.01[4+0.14{(3n+17)(n-3)+36}]$ and the number of clock cycles is given by $(3n+1)/8$.
+\begin{figure}[!htb] 
+\vspace{-1 cm}
+\hspace{.7 cm}
+\includegraphics[height=0.5\textwidth]{Figures/opcn86.eps}
+\vspace{-5 cm}
+\caption{Proposed odd parity checker}
+\label{fig:OddPC}
+\end{figure}
+\begin{figure}[!htb]
+\vspace{-2 cm}
+\includegraphics[width=\linewidth]{Figures/oddparitycheck_sim.eps}
+\caption{\small Simulation result of proposed odd parity checker }
+\label{fig:OddPCSim}
+\vspace{-1 cm}
+\includegraphics[width=2.4\linewidth]{Figures/lfnpc.eps}
+\vspace{-3 cm}
+\caption{\small Proposed 16-bit even parity checker }
+\label{fig:ExEvenPC}
+\end{figure}
+\begin{figure}[ht!]
+\includegraphics[height=.8\linewidth]{Figures/cmplx.eps}
+\caption{\small Comparison of complexity of n-bit parity generators}
+\label{fig:cmplx}
+\end{figure}
+\begin{figure}[ht!]
+\hspace{-1.5 cm}
+\includegraphics[height=.8\linewidth]{Figures/pg1.eps}
+\caption{\small Comparison of area of n-bit parity generators}
+\label{fig:pg}
+\end{figure}
+
+
+The proposed parity generator and parity checker can be considered as the best design among all the existing designs of parity generator and parity checker, in terms of common design metrics like number of cells or area, latency, number of crossovers, etc.
+
+
+
+ 
+%we have also included a case of comparison based on the cost function specifically designed for QCA circuits \cite{Liu_tnano2014}.
+While designing a circuit layout, we should be careful to not to make a heavy trade-off in one design metric just to optimize the other. Here, we are comparing our proposed design with the existing designs in terms of common design metrics: area, delay and crossovers, etc.
+Also, we have compared the designs based on their complexity. According to Liu et al. \cite{Liu_tnano2014} the complexity of a QCA circuit is measured in terms of the number of majority gates, inverters, and
+crossovers. The computed complexity of each design can be given by the expression: M + I + C \cite{DM_d2016}, where M refers to the number of majority gates, I refers to the number of inverters and C is the number of crossovers used in the circuit.
+Table\ref{tab:existingXOR3comp}, gives the summary of existing 3-bit even and odd parity generators along with that of our proposed design. Through Fig. \ref{fig:pgbar2} and Fig. \ref{fig:pgcmplx}, we have shown the comparison on the basis of area and complexity, respectively, of existing parity generators with our proposed parity generator. 
+\begin{figure}[ht!]
+\hspace{-1 cm}
+\includegraphics[height=.6\linewidth]{Figures/pga1.eps}
+\caption{\small Comparison of area of existing parity generators with our proposed design}
+\label{fig:pgbar2}
+\end{figure}
+A summary of existing parity checker designs along with that of our proposed parity checker has been illustrated in Table \ref{tab:4bitepc}.
+Fig. \ref{fig:pcbar} and Fig. \ref{fig:pccmplx} show the comparison in terms of area and complexity, respectively, among the existing parity checkers and our proposed parity checker.
+\begin{figure}[ht!]
+\hspace{-1 cm}
+\includegraphics[height=.6\linewidth]{Figures/pca.eps}
+\caption{\small Comparison of area of existing parity checkers with our proposed design}
+\label{fig:pcbar}
+\end{figure}
+\begin{figure}[ht!]
+\hspace{-1 cm}
+\includegraphics[height=.6\linewidth]{Figures/pgx.eps}
+\caption{\small Comparison of complexity of existing parity generators with the proposed design}
+\label{fig:pgcmplx}
+\end{figure}
+\begin{figure}[ht!]
+\hspace{-1 cm}
+\includegraphics[height=.6\linewidth]{Figures/pgc1.eps}
+\caption{\small Comparison of complexity of existing parity checkers with the proposed design}
+\label{fig:pccmplx}
+\end{figure}
+
+\begin{table}[!htb]
+
+  \begin{center}
+\scriptsize
+    \caption{\small Comparisons of various even  and odd parity generator in terms of common design metrics}
+    \label{tab:existingXOR3comp}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+%\begin{center}
+     
+      Parity   & Area & Improve- & Latency & Improve & crossover& \#  &Comp-  \\
+      
+       Generator & ($\mu m^2$)& ment(\%) & (clock  &ment(\%)& &cross- &lexity\\
+       & & & phases)&(latency)& & over&\\
+      \hline
+          
+~\cite{S_utpal2014}, Even & 0.0648 & 8 & None & -- & 8 \\ 
+\hline
+~\cite{beigh_ijpap2013}, Even & 0.14 & 8 & None & -- &8 \\
+\hline
+~\cite{firdous_2015}, Even & 0.09 & 11 & Multilayer & 2 & 10 \\
+\hline
+~\cite{firdous_bhat2014},Even & 0.09 & 12 & Multilayer &2 & 10 \\
+\hline
+Proposed (Even) & 0.04 & 3 & None & -- & 5 \\
+\hline
+~\cite{Das_FITEE_2016}, Odd & 0.09 & 7 & None & -- & 11 \\
+\hline
+~\cite{firdous_2015}, Odd & 0.09 & 7 & Multilayer & 2 & 11 \\
+\hline
+Proposed (odd) & 0.04 & 3 & None & -- & 6 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+
+
+
+\begin{table}
+\begin{center}
+ \scriptsize
+ \caption{\small Summary of n-bit QCA Parity Generator}
+ \label{tab:nsumm}
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+%\begin{center}
+     
+      Parity   & \#MVs & \#INVs & Crossing & \# Cross- & Complexity  \\
+      
+       Generator & && Type&Over(C) &\\
+     
+      \hline
+      ~\cite{Das_FITEE_2016}&3(n-1)&2.5(n-1)&--&--&$(11/2)(n-1)$\\ \hline
+      ~\cite{firdous_2015}odd&3(n-1)&1.5(n-1)&Multi-&&\\&&&layer &(n-1)&$(11/2)(n-1)$\\ \hline
+       ~\cite{firdous_2015}even&3(n-1)&(n-1)&Multi-&&\\&&&layer &(n-1)&5(n-1)\\ \hline
+       ~\cite{firdous_bhat2014}&3(n-1)&(n-1)&Multi-&&\\&&& layer &(n-1)&5(n-1)\\ \hline
+       ~\cite{S_utpal2014}&3(n-1)&(n-1)&Multi-&&\\&&&layer &(n-3)&(5n-7)\\ \hline
+       ~\cite{beigh_ijpap2013}&3(n-1)&(n-1)&Multi-&&\\& &&layer &(n-3)&(5n-7)\\ \hline
+       Proposed&1.5(n-1)&(n-1)&Co-&&\\&&&planar&1.5(n-3)&(4n-7)\\ \hline
+      
+      
+           \end{tabular}
+  \end{center}
+\end{table}
+\begin{table}[!htb]
+\begin{center}
+\scriptsize
+ \caption{\small 4-bit even and odd parity checker}
+ \label{tab:4bitepc}
+ \hspace{-1.5 cm}
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+
+      Parity   & Area &Improve-& Latency&Improve-& Cross- &\# &Comp- \\
+      
+       Checker & ($\mu m^2$)&ment(\%) & (clock &ment(\%) &over & cross-&lexity  \\
+       & & & phases)&(latency)&  & over&\\
+      \hline
+~\cite{beigh_ijpap2013}Even &  0.24&243 & 12&140 & None & --&16\\ \hline
+~\cite{firdous_bhat2014}Even &  0.12& 71.42& 11&120 & Multi-&&\\&&&&&layer & 3&15\\ \hline
+~\cite{firdous_2015}Even & 0.11&57.14 & 7&40 & multi-&&\\&&&&&layer & 3&15\\ \hline
+~\cite{S_utpal2014}Even &  0.17 &142.86& 8&60 & None & --&15\\ \hline
+Proposed&&&&&&&\\(Even)& 0.07&-- & 5&-- & None& --&9\\ \hline
+~\cite{Das_FITEE_2016}Odd & 0.18 &157.14& 8&60& None & --&19\\ \hline
+ ~\cite{firdous_2015} Odd& 0.13 &85.71& 7&40 & Multi-&&\\&&&&&layer & 3&16\\ \hline
+  ~\cite{teja_nems2008}Odd & 0.53&657.14 & 8&60 & copla-&&\\&&&&&nar \& &&\\ &&&&& multi- &&\\&&&&&layer & 5 &24\\ \hline
+       Proposed&&&&&&&\\(0dd) &  0.07&-- & 5&-- & None & --&10 \\ \hline
+ 
+   \end{tabular}
+  \end{center}
+\end{table}
+\begin{table}
+ \begin{center}
+\scriptsize
+  \caption{\small Area (Unit: $\mu m^2$)  and delay of n-bit parity generator }
+  \label{tab:nbitpg}
+\hspace{-1 cm}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+
+\scriptsize
+\label{tab:nAreaCC}
+     
+      Parity&Clock  &\multicolumn{3}{c|}{Area}\\\cline{3-5}&&5-bit & 7-bit & n-bit  \\
+      
+       Generator&Cycles&&& \\
+ 
+      \hline
+          
+    ~\cite{S_utpal2014}&(n-1)  & 0.26&0.4216& 0.02[11n-15]*0.02[2n+3]\\ 
+     \hline
+     ~\cite{beigh_ijpap2013}&(n-1)&0.367&0.680 & 0.27[n-1]*0.02[2n+7]\\ \hline
+     ~\cite{Das_FITEE_2016}&$(n^2+7)/8$&0.3588&0.7888&0.01[19n-17]*0.01[11n-9]\\ \hline
+     ~\cite{firdous_bhat2014}&$(11/8)(n-1)$&0.2544&0.5056&0.02[13n-12]*0.04[n+1]\\ \hline
+     ~\cite{firdous_2015}Even&$(7/8)(n-1)$&0.258&0.512&0.01[21n-19]*0.05[n+1]\\ \hline
+     ~\cite{firdous_2015}Odd&$(11/8)(n-1)$ &0.234&0.7476&0.02[11n-10]*0.02[2n+3]\\ \hline
+     
+      Proposed &$(3/8)(n-1)$ &0.096 &0.228& 0.01[4+[[3n+17]*[n-3]*0.14]]\\
+     \hline 
+\end{tabular}
+\end{center}
+\end{table}
+    
+The proposed parity generator and parity checker can be considered as the best design among all the existing designs of parity generator and parity checker, in terms of common design metrics specified above. As seen through the tables, the percentage improvements of our designs over the others illustrate satisfactory results. These improvements will lead to the design of faster and more efficient communication systems.
+\\In the existing literature, none of the proposed designs of 3-bit parity generators and 4-bit parity checkers have been provided with their n-bit versions. However, for the sake of comparison, we have created the n-bit versions of the parity generators based on their originally proposed designs and computed the generalized expressions for their design parameters (Table \ref{tab:nAreaCC}). Multi-bit versions of some existing designs may require multilayer crossings.
+We have not derived the n-bit expression for the existing parity checkers because for different values of n, the structure of the layout will follow different pattern of 2-input XOR gates as an efficient parity checker can either be designed by cascading the component XOR gates or by using them in a combination of parallel and cascaded connections.
+Table \ref{tab:nAreaCC} illustrates the expression for area and delay of n-bit versions of the existing parity generators and that of our proposed parity generator layout. Table \ref{tab:nsumm} presents a summary of number of majority gates, inverters and crossovers used in the n-bit versions of the parity generators along with their respective complexity.
+Comparison of the n-bit version of the proposed parity generator with the existing parity generators in terms of complexity and area is shown in Fig. \ref{fig:cmplx} Fig. \ref{fig:pg} respectively.
+The n-bit version of our proposed design is found to be the best, with the lowest complexity, area and latency.
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation Results}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command, the
+% \label for the overall figure must come after \caption.
+% \hfil must be used as a separator to get equal spacing.
+% The subfigure.sty package works much the same way, except \subfigure is
+% used instead of \subfloat.
+%
+%\begin{figure*}[!t]
+%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
+%\label{fig_second_case}}}
+%\caption{Simulation results}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+
+
+% An example of a floating table. Note that, for IEEE style tables, the 
+% \caption command should come BEFORE the table. Table text will default to
+% \footnotesize as IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that IEEE does not put floats in the very first column - or typically
+% anywhere on the first page for that matter. Also, in-text middle ("here")
+% positioning is not used. Most IEEE journals/conferences use top floats
+% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
+% command of the stfloats package.
+
+
+Parity generator and parity checker circuits are important parts of communication circuits as they are very commonly used for error-detection in a data stream \cite{}.
+A parity generator is a combinational logic circuit that generates the parity bit in the transmitter \cite{}. On the other hand, a circuit that checks the parity in the receiver is called parity checker.
+A combined circuit or devices of parity generators and parity checkers are commonly used in digital systems to detect the single bit errors in the transmitted data word.
